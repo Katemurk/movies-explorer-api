@@ -1,9 +1,9 @@
-const signupRouter = require('express').Router();
+const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 
 const { createUser } = require('../controllers/users');
 
-signupRouter.post('/signup', celebrate({
+router.post('/signup', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     // eslint-disable-next-line no-useless-escape
@@ -12,4 +12,4 @@ signupRouter.post('/signup', celebrate({
   }),
 }), createUser);
 
-module.exports = signupRouter;
+module.exports = router;

@@ -1,5 +1,5 @@
-[![Tests](../../actions/workflows/tests-13-sprint.yml/badge.svg)](../../actions/workflows/tests-13-sprint.yml) [![Tests](../../actions/workflows/tests-14-sprint.yml/badge.svg)](../../actions/workflows/tests-14-sprint.yml)
-# Проект Mesto фронтенд + бэкенд
+
+# Этап 2: бэкенд
 
 
 ## Директории
@@ -16,6 +16,8 @@
 `npm run dev` — запускает сервер с hot-reload
 
 
-My link: 
-https://github.com/Katemurk/express-mesto-gha
+My links: 
+https://github.com/Katemurk/movies-explorer-api/tree/level-1
+
+https://api.katemur.nomoredomains.xyz/signup
 (click!)
