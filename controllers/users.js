@@ -48,6 +48,9 @@ const updateUserinfo = (req, res, next) => {
       return res.status(200).send(user);
     })
     .catch((err) => {
+      if (err.code === 11000) {
+        return next(new ConflictErr('User with this email already exists!'));
+      }
       if (err.name === 'ValidationError') {
         return next(new BadRequestErr('Uncorrect information'));
       }

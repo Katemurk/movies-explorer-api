@@ -43,7 +43,7 @@ const createMovie = (req, res, next) => {
     .then((movie) => res.status(201).send(movie))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return next(new BadRequestErr('Uncorrect movie ID'));
+        return next(new BadRequestErr('Uncorrect movie data'));
       }
       return next(err);
     });
@@ -60,13 +60,13 @@ const deleteMovieById = (req, res, next) => {
       if (movie.owner.toString() !== userId) {
         throw new ForbiddenErr('Not enough rights');
       }
-      Movie.deleteOne(req.params.card)
+      return Movie.deleteOne(req.params.card)
         .then(() => {
           res.status(200).send(movie);
         })
         .catch((err) => {
-          if (err.name === 'CastError') {
-            return next(new BadRequestErr('Uncorrect movie ID'));
+          if (err.name === 'ValidationError') {
+            return next(new BadRequestErr('Uncorrect movie data'));
           }
           return next(err);
         });
