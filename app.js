@@ -10,7 +10,7 @@ const { errors } = require('celebrate');
 
 const cors = require('cors');
 
-const limiter = require('./middlewares/limiter');
+//const limiter = require('./middlewares/limiter');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -18,7 +18,7 @@ const routes = require('./routes/index');
 
 const { PORT = 3000 } = process.env;
 
-const { CONNECT = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { CONNECT = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env;
 
 const errorsHandler = require('./middlewares/errorsHandler');
 
@@ -36,7 +36,7 @@ app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
 app.use(helmet());
-app.use(limiter);
+//app.use(limiter);
 
 app.use('/', routes);
 app.use(errorLogger);
