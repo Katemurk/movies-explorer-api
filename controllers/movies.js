@@ -19,7 +19,7 @@ const createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailerLink,
+    trailer,
     nameRU,
     nameEN,
     thumbnail,
@@ -33,7 +33,7 @@ const createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailerLink,
+    trailer,
     nameRU,
     nameEN,
     thumbnail,
@@ -43,7 +43,7 @@ const createMovie = (req, res, next) => {
     .then((movie) => res.status(201).send(movie))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return next(new BadRequestErr('Uncorrect movie data'));
+        return next(new BadRequestErr('Uncorrect movie data!'));
       }
       return next(err);
     });
